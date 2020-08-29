@@ -31,6 +31,7 @@ const options = {
 };
 
 const OSDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+const themeMode = localStorage.getItem('theme');
 
 const theme = {
 	dark: () => {
@@ -40,6 +41,7 @@ const theme = {
 		primaryGradient.classList.replace('gradient-primary-light', 'gradient-primary-dark');
 		iconGradient.classList.replace('gradient-icon-light', 'gradient-icon-dark');
 		glows.forEach(glow => glow.style.display = '')
+		localStorage.setItem('theme', 'dark')
 	},
 	light: () => {
 		body.classList.replace('dark', 'light')
@@ -48,16 +50,27 @@ const theme = {
 		primaryGradient.classList.replace('gradient-primary-dark', 'gradient-primary-light');
 		iconGradient.classList.replace('gradient-icon-dark', 'gradient-icon-light');
 		glows.forEach(glow => glow.style.display = 'none')
+		localStorage.setItem('theme', 'light')
 	}
 }
 
 function setMode () {
-	// Set dark mode
-	if (OSDarkMode.matches) {
+	// Set dark mode 
+	if (themeMode === 'dark') {
 		theme.dark();
-		// Set light mode
-	} else {
+	}
+	//Set light mode
+	else if (themeMode === 'light') {
 		theme.light();
+	}
+	// Set mode based on OS mode
+	else {
+		if (OSDarkMode.matches) {
+			theme.dark();
+			// Set light mode
+		} else {
+			theme.light();
+		}
 	}
 }
 
@@ -153,7 +166,6 @@ if (smallScreen.matches) {
 		})
 	);
 }
-
 
 
 
