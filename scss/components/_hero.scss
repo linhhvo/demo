@@ -1,0 +1,81 @@
+#neon-logo {
+	max-width: 100vw;
+	max-height: 100vh;
+	filter: var(--brightness);
+	// animation: flicker 5s ease infinite;
+
+	@include mq($break-med) {
+		width: 80vw;
+		max-width: 1000px;
+		height: auto;
+	}
+	@include mq($break-xlg) {
+		max-width: 1000px;
+	}
+}
+
+.text {
+	&-name {
+		font-family: 'NeonTubes2-Regular';
+		font-size: 18px;
+		line-height: 1.25;
+		fill: url(#gradient-primary);
+		stroke: var(--stroke-primary);
+		stroke-width: 1px;
+		stroke-opacity: 0.6;
+		paint-order: stroke fill;
+	}
+	&-welcome {
+		font-family: 'HTNeonW01-Regular';
+		font-size: 11px;
+		line-height: 1.25;
+		fill: var(--logo-text-color);
+		stroke: var(--stroke-shadow);
+		stroke-width: 0.2px;
+		stroke-opacity: 0.5;
+		paint-order: stroke fill;
+		filter: var(--secondary-glow);
+	}
+}
+.bubble {
+	fill: url(#gradient-primary);
+	stroke: var(--stroke-primary);
+	stroke-width: 0.15px;
+}
+
+.icon {
+	&-outline {
+		fill: url(#gradient-icon);
+		filter: var(--icon-glow);
+		stroke: var(--stroke-shadow);
+		stroke-width: 0.3px;
+		stroke-opacity: 0.5;
+		paint-order: stroke fill;
+	}
+	&-brackets {
+		fill: var(--logo-details-color);
+		filter: var(--icon-details-glow);
+	}
+	&-slash {
+		stroke-linejoin: round;
+		stroke-width: 0.562;
+	}
+	&-lines {
+		stroke-width: 0.475;
+	}
+}
+
+.icon-inner {
+	stroke: var(--logo-details-color);
+	stroke-linecap: round;
+	filter: var(--icon-details-glow);
+}
+
+.glow {
+	filter: url(#glow-primary-dark);
+	fill: url(#gradient-primary-glow);
+}
+
+.shadow {
+	filter: var(--shadow);
+}

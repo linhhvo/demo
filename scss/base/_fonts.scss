@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'NeonTubes2-Regular';
+	src: url('../NeonTubes2/NeonTubes2.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'HTNeonW01-Regular';
+	src: url('../HTNeon/HTNeonW01Regular/HTNeonW01Regular.otf') format('opentype');
+	src: url('../HTNeon/import/HTNeon.eot');
+	src: url('../HTNeon/import/HTNeon.eot?#iefix') format('embedded-opentype'),
+		url('../HTNeon/import/HTNeon.woff2') format('woff2'),
+		url('../HTNeon/import/HTNeon.woff') format('woff'),
+		url('../HTNeon/import/HTNeon.ttf') format('truetype'),
+		url('../HTNeon/import/HTNeon.svg#HT Neon W01 Regular') format('svg');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Nunito:wght@300;400&family=Marvel&display=swap');

@@ -1,0 +1,66 @@
+.theme-switch {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	transition: opacity 0.5s;
+	@include mq($break-med) {
+		position: relative;
+		margin: auto 1em;
+		top: 0;
+	}
+	@include mq($break-lg) {
+		position: absolute;
+		top: 2.5vw;
+		left: 1vw;
+	}
+}
+
+.bulb-hidden {
+	opacity: 0;
+}
+
+.light-bulb {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	@include mq($break-xlg) {
+		width: 70px;
+		height: 70px;
+	}
+}
+
+.bulb {
+	&-base {
+		fill: #73a1b2;
+	}
+	&-main {
+		fill: var(--bulb-color);
+	}
+	&-ray {
+		fill: var(--ray-color);
+	}
+	&-outline {
+		stroke: var(--stroke-color);
+		fill: var(--outline-fill-color);
+	}
+	&-instruction {
+		@include mq($break-sm) {
+			position: absolute;
+			width: 170px;
+			height: 70px;
+			left: 5px;
+			top: 40px;
+			fill: var(--primary-color);
+		}
+		@include mq($break-xlg) {
+			width: 300px;
+			height: 150px;
+			top: 60px;
+			left: 10px;
+		}
+	}
+}
+
+.hidden {
+	display: none;
+}

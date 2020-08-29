@@ -1,0 +1,160 @@
+const body = document.body;
+const sections = document.querySelectorAll('.page');
+
+const navBar = document.querySelector('.nav-bar');
+const navLinks = document.querySelectorAll('.nav-link');
+const navItems = document.querySelectorAll('.nav-item');
+const navItemHighlight = document.querySelector('.nav-item-highlight');
+
+const burgerMenu = document.querySelector('.burger');
+
+const lightBulb = document.querySelector('.light-bulb');
+const lightBulbText = document.querySelector('.bulb-instruction-text');
+
+const themeSwitchContainer = document.querySelector('.theme-switch');
+
+const primaryGradient = document.getElementById('gradient-primary');
+const iconGradient = document.getElementById('gradient-icon');
+const glows = document.querySelectorAll('.glow');
+const logoNameText = document.getElementById('text-name');
+const logoBubble = document.getElementById('bubble');
+const logoIconOutline = document.getElementById('icon-outline');
+const logoIconInner = document.getElementById('icon-inner');
+const logoIconBrackets = document.getElementById('icon-brackets');
+const logoWelcomeText = document.getElementById('text-welcome');
+
+const smallScreen = window.matchMedia('(max-width: 767px)');
+const bigScreen = window.matchMedia('(min-width: 768px)');
+
+const options = {
+	threshold: 0.5,
+};
+
+const OSDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+
+const theme = {
+	dark: () => {
+		body.classList.replace('light', 'dark')
+		lightBulb.classList.replace('off', 'on');
+		lightBulbText.textContent = 'turn me off';
+		primaryGradient.classList.replace('gradient-primary-light', 'gradient-primary-dark');
+		iconGradient.classList.replace('gradient-icon-light', 'gradient-icon-dark');
+		glows.forEach(glow => glow.style.display = '')
+	},
+	light: () => {
+		body.classList.replace('dark', 'light')
+		lightBulb.classList.replace('on', 'off');
+		lightBulbText.textContent = 'light me up';
+		primaryGradient.classList.replace('gradient-primary-dark', 'gradient-primary-light');
+		iconGradient.classList.replace('gradient-icon-dark', 'gradient-icon-light');
+		glows.forEach(glow => glow.style.display = 'none')
+	}
+}
+
+function setMode () {
+	// Set dark mode
+	if (OSDarkMode.matches) {
+		theme.dark();
+		// Set light mode
+	} else {
+		theme.light();
+	}
+}
+
+function switchMode () {
+	// Switch dark -> light
+	if (lightBulb.classList.contains('on')) {
+		theme.light();
+		//Switch light -> dark
+	} else {
+		theme.dark();
+	}
+}
+
+function navBarAnimation () {
+	// Hide light bulb icons
+	themeSwitchContainer.classList.toggle('bulb-hidden');
+	// Burger menu animation
+	burgerMenu.classList.toggle('burger-active');
+	// nav bar display
+	navBar.classList.toggle('nav-bar--active');
+	// nav links display animation
+	navItems.forEach((item, index) => {
+		if (item.style.animationName === 'fadeIn') {
+			item.style.animation = `fadeOut 0.3s ease forwards`;
+		} else {
+			item.style.animation = `fadeIn 0.4s ease forwards ${index / 7 + 0.4}s`;
+		}
+	});
+}
+
+function getAllSiblingAnchors (activeAnchor) {
+	const allAnchors = Array.from(document.querySelectorAll('.nav-link'));
+	return allAnchors.filter((anchor) => anchor !== activeAnchor);
+}
+
+function changeNavLinksColor (navLink) {
+	navLink.classList.add('nav-link--active');
+	let clickedLinkSiblings = getAllSiblingAnchors(navLink);
+	clickedLinkSiblings.forEach(
+		(sibling) => sibling.classList.remove('nav-link--active')
+	);
+}
+
+function matchNavLink (entries) {
+	entries.forEach((entry) => {
+		const idName = entry.target.id;
+		const activeAnchor = document.querySelector(`[data-page=${idName}]`);
+		let anchorSiblings = getAllSiblingAnchors(activeAnchor);
+		const coords = activeAnchor.getBoundingClientRect();
+		const directions = {
+			height: coords.height,
+			width: coords.width,
+			top: coords.top,
+			left: coords.left,
+		};
+		if (entry.isIntersecting) {
+			navItemHighlight.style.setProperty('left', `${directions.left}px`);
+			navItemHighlight.style.setProperty('top', `${directions.top}px`);
+			navItemHighlight.style.setProperty('width', `${directions.width}px`);
+			navItemHighlight.style.setProperty('height', `${directions.height}px`);
+			changeNavLinksColor(activeAnchor);
+		}
+	})
+}
+
+window.onload = () => {
+	// Set initial theme mode
+	setMode();
+	// Highlight nav item based on active page section
+	let observer = new IntersectionObserver(matchNavLink, options);
+	// Nav bar animation for big screen size
+	if (bigScreen.matches) {
+		sections.forEach((section) => {
+			observer.observe(section);
+		});
+	}
+}
+
+// Change theme light/dark
+lightBulb.addEventListener('click', switchMode);
+
+// Event handles for small screen size
+if (smallScreen.matches) {
+	// Hamburger menu toggle
+	burgerMenu.addEventListener('click', () => {
+		navBarAnimation();
+	});
+	// Close nav bar when click nav link
+	navLinks.forEach((link) =>
+		link.addEventListener('click', () => {
+			navBarAnimation();
+			changeNavLinksColor(link);
+		})
+	);
+}
+
+
+
+
+

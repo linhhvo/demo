@@ -1,0 +1,64 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+p {
+	font-family: 'Raleway', sans-serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	background-color: var(--bg-color);
+	transition: background-color 0.5s linear;
+}
+
+main {
+	@include mq($break-med) {
+		width: 100vh;
+		height: 100vw;
+		transform: rotate(-90deg) translateX(-100vh);
+		transform-origin: top left;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		position: absolute;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		scroll-snap-type: y mandatory;
+		scroll-snap-type: mandatory;
+		scroll-snap-points-y: repeat(100vw);
+	}
+}
+
+.wrapper {
+	@include mq($break-med) {
+		display: flex;
+		flex-direction: row;
+		width: 300vw;
+		transform: rotate(90deg) translateY(-100vh);
+		transform-origin: top left;
+	}
+}
+
+.page {
+	height: 100vh;
+	width: 100vw;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.title {
+	text-align: center;
+	color: var(--primary-color);
+	font-weight: 500;
+	font-family: 'Nunito';
+}

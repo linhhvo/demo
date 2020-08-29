@@ -1,0 +1,20 @@
+.skills {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 1em;
+	& p {
+		color: var(--primary-color);
+		font-size: 1.25rem;
+	}
+	&-icons {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		& svg {
+			width: calc(30px + 2vw);
+			height: calc(60px + 2vw);
+			// margin: 0 0.6em;
+		}
+	}
+}

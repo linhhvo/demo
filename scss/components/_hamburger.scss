@@ -1,0 +1,27 @@
+.burger {
+	margin: auto;
+	opacity: 1;
+	cursor: pointer;
+	transition: opacity 0.2;
+	& * {
+		width: 30px;
+		height: 3px;
+		margin: 5px;
+		background-color: var(--primary-color);
+		border-radius: 10px;
+		transition: transform 0.2s 0.1s ease;
+	}
+	@include mq($break-med) {
+		display: none;
+	}
+	&-active {
+		opacity: 0.8;
+		& .burger-1 {
+			transform: translate3d(-9px, 1px, 0) rotate(-45deg) scale(0.7, 1);
+		}
+
+		& .burger-3 {
+			transform: translate3d(-9px, -1px, 0) rotate(45deg) scale(0.7, 1);
+		}
+	}
+}

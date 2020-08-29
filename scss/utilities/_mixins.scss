@@ -1,0 +1,58 @@
+// Media query mixin
+@mixin mq($break) {
+	@media (min-width: $break) {
+		@content;
+	}
+}
+
+@keyframes flicker {
+	0%,
+	4%,
+	8%,
+	12%,
+	20%,
+	30%,
+	40%,
+	50%,
+	100% {
+		filter: saturate(0.5);
+	}
+
+	2%,
+	6%,
+	10% {
+		filter: saturate(0.8);
+	}
+
+	25%,
+	35%,
+	45% {
+		filter: saturate(1.01);
+	}
+
+	80% {
+		filter: saturate(1);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+}

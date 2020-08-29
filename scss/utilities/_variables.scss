@@ -1,0 +1,125 @@
+// Media query breaks variables
+$break-sm: 400px;
+$break-med: 768px;
+$break-lg: 1300px;
+$break-xlg: 2500px;
+
+// Colors
+
+$white: rgba(228, 228, 228);
+
+.light {
+	--primary-color: #775891;
+	--out-of-focus-color: #a373b6e3;
+	--bg-color: #efe6f7;
+	--logo-text-color: #f7c978;
+	--logo-details-color: #f18271;
+	--stroke-primary: none;
+	--secondary-glow: none;
+	--icon-glow: none;
+	--icon-details-glow: none;
+	--shadow: none;
+	--brightness: none;
+	--skill-icon: #323330;
+}
+
+.dark {
+	--primary-color: rgba(228, 228, 228);
+	--out-of-focus-color: rgba(228, 228, 228, 0.534);
+	--bg-color: black;
+	--logo-text-color: #fffd93;
+	--logo-details-color: #ff8d7b;
+	--stroke-shadow: rgb(39, 39, 39);
+	--stroke-primary: url(#gradient-primary-glow);
+	--secondary-glow: url(#glow-secondary-dark);
+	--icon-glow: url(#glow-icon-dark);
+	--icon-details-glow: url(#glow-iconDetails-dark);
+	--shadow: url(#shadow);
+	--brightness: brightness(110%);
+	--skill-icon: rgba(228, 228, 228);
+}
+
+.gradient-primary-dark {
+	--color-stop-1: #ccffee;
+	--color-stop-2: #c6f7fd;
+	--color-stop-3: #ecd7ff;
+	--color-stop-4: #edd6ff;
+	--color-stop-5: #ffd5f8;
+	--color-stop-6: #feddff;
+	--color-stop-7: #ffe5d5;
+	--color-stop-8: #fff9d0;
+	--color-stop-9: #fffcd2;
+}
+
+.gradient-primary-light {
+	--color-stop-1: #3f51b1;
+	--color-stop-2: #5a55ae;
+	--color-stop-3: #7b5fac;
+	--color-stop-4: #8f6aae;
+	--color-stop-5: #a86aa4;
+	--color-stop-6: #cc6b8e;
+	--color-stop-7: #f18271;
+	--color-stop-8: #f3a469;
+	--color-stop-9: #f7c978;
+
+	// --color-stop-1: #d16ba5;
+	// --color-stop-2: #c777b9;
+	// --color-stop-3: #ba83ca;
+	// --color-stop-4: #aa8fd8;
+	// --color-stop-5: #9a9ae1;
+	// --color-stop-6: #8aa7ec;
+	// --color-stop-7: #6da0db;
+	// --color-stop-8: #539ccc;
+	// --color-stop-9: #45b1d8;
+}
+
+.gradient-icon-dark {
+	--color-stop-1: #bbffe8;
+	--color-stop-2: #a4f4ff;
+	--color-stop-3: #ffc2f5;
+}
+
+.gradient-icon-light {
+	--color-stop-1: #3f51b1;
+	--color-stop-2: #4e48b3;
+	--color-stop-3: #b15eab;
+}
+
+// Glow
+#gradient-primary-glow {
+	--color-stop-1: #1511fa;
+	--color-stop-2: #623eff;
+	--color-stop-3: #823eff;
+	--color-stop-4: #9f48eb;
+	--color-stop-5: #e646db;
+	--color-stop-6: #e63b76;
+	--color-stop-7: #d34533;
+	--color-stop-8: #d4762e;
+	--color-stop-9: #d69b36;
+}
+
+#glow-secondary-dark {
+	--flood-color: #d4762e;
+}
+
+#glow-icon-dark {
+	--flood-color: #7328ff;
+}
+
+#glow-iconDetails-dark {
+	--flood-color: #ff1100;
+}
+
+.on {
+	--bulb-color: #f7c400;
+	--stroke-color: rgb(228, 228, 228);
+	--ray-color: #f7c400;
+	--outline-fill-color: transparent;
+}
+
+.off {
+	--bulb-color: rgba(255, 255, 255, 0.192);
+	--stroke-color: black;
+	--ray-color: transparent;
+	--outline-fill-color: black;
+}
