@@ -1,7 +1,21 @@
+#portfolio {
+	// justify-content: space-around;
+	padding: 0 1.5em;
+	height: max-content;
+	// max-width: 1000px;
+	// margin: 0 auto;
+	// justify-self: center;
+	@include mq($break-med) {
+		height: 100vh;
+		// padding-top: 15vh;
+	}
+}
+
 .skills {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0 1em;
+	margin: 0 auto 2em;
+	// justify-content: center;
 	& p {
 		color: var(--primary-color);
 		font-size: 1.25rem;
@@ -12,9 +26,56 @@
 		justify-content: space-between;
 		width: 100%;
 		& svg {
-			width: calc(30px + 2vw);
+			width: calc(30px + 1vw);
 			height: calc(60px + 2vw);
-			// margin: 0 0.6em;
 		}
 	}
+}
+
+.projects {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	@include mq($break-med) {
+		display: grid;
+		gap: 2em 3em;
+		grid-template-rows: repeat(auto-fill, 360px);
+		grid-template-columns: repeat(auto-fit, 270px);
+	}
+}
+
+.projects-thumbnail {
+	height: 360px;
+	width: 270px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	cursor: pointer;
+	margin-bottom: 2em;
+	@include mq($break-med) {
+		margin: 0;
+	}
+
+	&--title {
+		font-weight: 400;
+		font-size: 1.5rem;
+	}
+
+	&--techstack {
+		margin-top: 0.75em;
+	}
+
+	& img {
+		width: 100%;
+		border-radius: 20px;
+	}
+	& svg {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+.projects-details {
+	display: none;
 }

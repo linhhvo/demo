@@ -44,7 +44,9 @@
 		fill: var(--outline-fill-color);
 	}
 	&-instruction {
+		display: none;
 		@include mq($break-sm) {
+			display: unset;
 			position: absolute;
 			width: 170px;
 			height: 70px;

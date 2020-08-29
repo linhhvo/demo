@@ -9,6 +9,12 @@ p {
 	font-family: 'Raleway', sans-serif;
 }
 
+h1,
+h2 {
+	color: var(--primary-color);
+	font-family: 'Nunito';
+}
+
 ::-webkit-scrollbar {
 	display: none;
 }
@@ -53,13 +59,13 @@ main {
 	scroll-snap-stop: always;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	flex-direction: column;
 }
 
 .title {
 	text-align: center;
-	color: var(--primary-color);
 	font-weight: 500;
-	font-family: 'Nunito';
+	@include mq($break-med) {
+		display: none;
+	}
 }
