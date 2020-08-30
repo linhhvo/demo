@@ -25,9 +25,10 @@ const logoWelcomeText = document.getElementById('text-welcome');
 
 const filterBtn = document.getElementById('filter-btn');
 const filterList = document.querySelector('.filter ul')
+const dropdownArrow = document.querySelector('.dropdown-arrow');
 
-const smallScreen = window.matchMedia('(max-width: 800px)');
-const bigScreen = window.matchMedia('(min-width: 801px)');
+const smallScreen = window.matchMedia('(max-width: 767px)');
+const bigScreen = window.matchMedia('(min-width: 768px)');
 
 const options = {
 	threshold: 0.5,
@@ -173,11 +174,15 @@ if (smallScreen.matches) {
 // Show/hide project filter list
 filterBtn.addEventListener('click', () => {
 	filterList.classList.toggle('collapsed');
+	dropdownArrow.classList.toggle('up');
+
 })
 
 document.addEventListener('click', (e) => {
 	if (e.target !== filterBtn) {
 		filterList.classList.add('collapsed');
+		dropdownArrow.classList.remove('up');
+
 	}
 })
 

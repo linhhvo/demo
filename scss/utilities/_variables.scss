@@ -1,5 +1,6 @@
 // Media query breaks variables
 $break-sm: 400px;
+$break-smmed: 768px;
 $break-med: 800px;
 $break-lg: 1300px;
 $break-xlg: 2500px;
@@ -22,6 +23,7 @@ $white: rgba(228, 228, 228);
 	--shadow: none;
 	--brightness: none;
 	--skill-icon: #323330;
+	--button-bg-color: #9167a5;
 }
 
 .dark {
@@ -39,6 +41,7 @@ $white: rgba(228, 228, 228);
 	--shadow: url(#shadow);
 	--brightness: brightness(110%);
 	--skill-icon: rgba(228, 228, 228);
+	--button-bg-color: #dac9c4;
 }
 
 .gradient-primary-dark {

@@ -10,9 +10,12 @@
 	z-index: 100;
 	background-color: var(--bg-color);
 	transition: background-color 0.5s linear;
-	@include mq($break-med) {
+	@include mq($break-smmed) {
 		height: 15vh;
-		background-color: transparent;
+		background-color: var(--bg-color);
+	}
+	@include mq($break-med) {
+		background: transparent;
 	}
 	@include mq($break-xlg) {
 		font-size: 4rem;
@@ -33,7 +36,7 @@
 		background-color: var(--bg-color);
 		transform: translateX(100%);
 		transition: transform 0.5s ease-in-out;
-		@include mq($break-med) {
+		@include mq($break-smmed) {
 			position: unset;
 			background-color: transparent;
 			transform: unset;
@@ -56,7 +59,7 @@
 		opacity: 0;
 		transition: opacity 0.7s ease-in;
 		display: flex;
-		@include mq($break-med) {
+		@include mq($break-smmed) {
 			opacity: 1;
 		}
 		@include mq($break-lg) {
@@ -70,7 +73,7 @@
 		opacity: 0.7;
 		padding: 5px 15px;
 		transition: opacity 0.3s;
-		@include mq($break-med) {
+		@include mq($break-smmed) {
 			transition: color 1.3s, opacity 0.3s;
 		}
 		&:hover {
@@ -78,7 +81,7 @@
 		}
 		&--active {
 			opacity: 1;
-			@include mq($break-med) {
+			@include mq($break-smmed) {
 				color: var(--bg-color);
 			}
 		}
@@ -114,7 +117,7 @@
 
 .nav-item-highlight {
 	display: none;
-	@include mq($break-med) {
+	@include mq($break-smmed) {
 		display: unset;
 		position: absolute;
 		background-color: var(--primary-color);
