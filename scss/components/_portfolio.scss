@@ -1,34 +1,110 @@
 #portfolio {
-	// justify-content: space-around;
-	padding: 0 1.5em;
 	height: max-content;
-	// max-width: 1000px;
-	// margin: 0 auto;
-	// justify-self: center;
 	@include mq($break-med) {
 		height: 100vh;
-		// padding-top: 15vh;
 	}
 }
 
-.skills {
+.portfolio-container {
 	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto 2em;
-	// justify-content: center;
-	& p {
-		color: var(--primary-color);
-		font-size: 1.25rem;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	@include mq($break-med) {
+		width: 600px;
 	}
-	&-icons {
+	@include mq($break-lg) {
+		width: 1225px;
+	}
+}
+
+.filter-container {
+	@include mq($break-med) {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: flex-end;
+		// margin: 0 auto;
+	}
+}
+
+.filter {
+	font-family: 'Nunito', sans-serif;
+	position: relative;
+	margin-bottom: 2em;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	min-width: 190px;
+	@include mq($break-med) {
+		width: 10vw;
+	}
+	& p {
+		position: absolute;
+		padding: 5px 10px;
+		background-color: var(--bg-color);
+		color: var(--out-of-focus-color);
+		left: 7px;
+		top: -15px;
+		font-size: 14px;
+		transition: background-color 0.5s linear;
+	}
+	& button {
+		cursor: pointer;
+		font-size: 1.25rem;
 		width: 100%;
-		& svg {
-			width: calc(30px + 1vw);
-			height: calc(60px + 2vw);
+		padding: 0.5em 1em;
+		border-radius: 5px;
+		border: 0.25px solid var(--out-of-focus-color);
+		outline: none;
+		background-color: transparent;
+		color: var(--primary-color);
+		text-align: left;
+		transition: color 0.5s linear, border-color 0.3s;
+
+		&:hover {
+			border-color: var(--primary-color);
 		}
+	}
+	&-list {
+		position: absolute;
+		top: 50px;
+		background-color: var(--brighter-bg-color);
+		width: 100%;
+		border-radius: 15px;
+		box-shadow: 0px 0px 20px rgba(26, 26, 26, 0.274);
+		padding: 1em 0;
+		transition: all 0.4s;
+	}
+	& li {
+		color: var(--primary-color);
+		list-style: none;
+		line-height: 1.75;
+		cursor: pointer;
+		&:hover {
+			background-color: var(--primary-color);
+			color: var(--bg-color);
+		}
+	}
+}
+
+.collapsed {
+	opacity: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+.dropdown-arrow {
+	color: var(--primary-color);
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	transform: rotate(90deg);
+	font-family: 'Catamaran', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 200;
+	transition: color 0.5s linear;
+	pointer-events: none;
+	&.up {
+		transform: rotate(270deg);
 	}
 }
 
@@ -37,6 +113,7 @@
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+	// margin: 0 auto;
 	@include mq($break-med) {
 		display: grid;
 		gap: 2em 3em;

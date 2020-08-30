@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Nunito:wght@300;400&family=Marvel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Nunito:wght@300;400&family=Marvel&family=Catamaran:wght@200;300&display=swap");
 .light {
   --primary-color: #775891;
   --out-of-focus-color: #a373b6e3;
   --bg-color: #efe6f7;
+  --brighter-bg-color: #f8f1ff;
   --logo-text-color: #f7c978;
   --logo-details-color: #f18271;
   --stroke-primary: none;
@@ -18,6 +19,7 @@
   --primary-color: rgba(228, 228, 228);
   --out-of-focus-color: rgba(228, 228, 228, 0.534);
   --bg-color: black;
+  --brighter-bg-color: rgb(22, 22, 22);
   --logo-text-color: #fffd93;
   --logo-details-color: #ff8d7b;
   --stroke-shadow: rgb(39, 39, 39);
@@ -498,14 +500,18 @@ template {
   scroll-behavior: smooth;
 }
 
-p {
+p,
+label,
+select {
   font-family: "Raleway", sans-serif;
+  transition: color 0.5s linear;
 }
 
 h1,
 h2 {
   color: var(--primary-color);
   font-family: "Nunito";
+  transition: color 0.5s linear;
 }
 
 ::-webkit-scrollbar {
@@ -558,6 +564,7 @@ body {
 .title {
   text-align: center;
   font-weight: 500;
+  margin-bottom: 2em;
 }
 @media (min-width: 768px) {
   .title {
@@ -895,7 +902,6 @@ body {
 }
 
 #portfolio {
-  padding: 0 1.5em;
   height: max-content;
 }
 @media (min-width: 768px) {
@@ -904,24 +910,111 @@ body {
   }
 }
 
-.skills {
+.portfolio-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto 2em;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
 }
-.skills p {
-  color: var(--primary-color);
+@media (min-width: 768px) {
+  .portfolio-container {
+    width: 600px;
+  }
+}
+@media (min-width: 1300px) {
+  .portfolio-container {
+    width: 1225px;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.filter {
+  font-family: "Nunito", sans-serif;
+  position: relative;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-width: 190px;
+}
+@media (min-width: 768px) {
+  .filter {
+    width: 10vw;
+  }
+}
+.filter p {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: var(--bg-color);
+  color: var(--out-of-focus-color);
+  left: 7px;
+  top: -15px;
+  font-size: 14px;
+  transition: background-color 0.5s linear;
+}
+.filter button {
+  cursor: pointer;
   font-size: 1.25rem;
-}
-.skills-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   width: 100%;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: 0.25px solid var(--out-of-focus-color);
+  outline: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  text-align: left;
+  transition: color 0.5s linear, border-color 0.3s;
 }
-.skills-icons svg {
-  width: calc(30px + 1vw);
-  height: calc(60px + 2vw);
+.filter button:hover {
+  border-color: var(--primary-color);
+}
+.filter-list {
+  position: absolute;
+  top: 50px;
+  background-color: var(--brighter-bg-color);
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(26, 26, 26, 0.274);
+  padding: 1em 0;
+  transition: all 0.4s;
+}
+.filter li {
+  color: var(--primary-color);
+  list-style: none;
+  line-height: 1.75;
+  cursor: pointer;
+}
+.filter li:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.collapsed {
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.dropdown-arrow {
+  color: var(--primary-color);
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  transform: rotate(90deg);
+  font-family: "Catamaran", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+  transition: color 0.5s linear;
+  pointer-events: none;
+}
+.dropdown-arrow.up {
+  transform: rotate(270deg);
 }
 
 .projects {

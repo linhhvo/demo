@@ -23,6 +23,9 @@ const logoIconInner = document.getElementById('icon-inner');
 const logoIconBrackets = document.getElementById('icon-brackets');
 const logoWelcomeText = document.getElementById('text-welcome');
 
+const filterBtn = document.getElementById('filter-btn');
+const filterList = document.querySelector('.filter ul')
+
 const smallScreen = window.matchMedia('(max-width: 767px)');
 const bigScreen = window.matchMedia('(min-width: 768px)');
 
@@ -167,6 +170,14 @@ if (smallScreen.matches) {
 	);
 }
 
+// Show/hide project filter list
+filterBtn.addEventListener('click', () => {
+	filterList.classList.toggle('collapsed');
+})
 
-
+document.addEventListener('click', (e) => {
+	if (e.target !== filterBtn) {
+		filterList.classList.add('collapsed');
+	}
+})
 
