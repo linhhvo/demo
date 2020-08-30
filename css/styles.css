@@ -824,6 +824,7 @@ body {
   max-height: 100vh;
   margin: 0 auto;
   filter: var(--brightness);
+  animation: flicker 5s ease infinite;
 }
 @media (min-width: 768px) {
   #neon-logo {
