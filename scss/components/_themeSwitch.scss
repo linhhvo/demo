@@ -50,15 +50,15 @@
 			position: absolute;
 			width: 170px;
 			height: 70px;
-			left: 5px;
-			top: 40px;
+			left: 10px;
+			top: 35px;
 			fill: var(--primary-color);
 		}
 		@include mq($break-xlg) {
 			width: 300px;
 			height: 150px;
 			top: 60px;
-			left: 10px;
+			left: 20px;
 		}
 	}
 }

@@ -94,16 +94,16 @@
 
 .on {
   --bulb-color: #f7c400;
-  --stroke-color: rgb(228, 228, 228);
-  --ray-color: #f7c400;
-  --outline-fill-color: transparent;
+  --ray-color: #da9500;
+  --stroke-color: rgb(56, 56, 56);
+  --outline-fill-color: rgb(56, 56, 56);
 }
 
 .off {
   --bulb-color: rgba(255, 255, 255, 0.192);
-  --stroke-color: black;
   --ray-color: transparent;
-  --outline-fill-color: black;
+  --stroke-color: rgba(228, 228, 228);
+  --outline-fill-color: rgba(228, 228, 228);
 }
 
 @keyframes flicker {
@@ -524,7 +524,7 @@ body {
   overscroll-behavior: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   main {
     width: 100vh;
     height: 100vw;
@@ -541,7 +541,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -566,7 +566,7 @@ body {
   font-weight: 500;
   margin-bottom: 2em;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .title {
     display: none;
   }
@@ -585,7 +585,7 @@ body {
   background-color: var(--bg-color);
   transition: background-color 0.5s linear;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav {
     height: 15vh;
     background-color: transparent;
@@ -612,7 +612,7 @@ body {
   transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-bar {
     position: unset;
     background-color: transparent;
@@ -638,7 +638,7 @@ body {
   transition: opacity 0.7s ease-in;
   display: flex;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-item {
     opacity: 1;
   }
@@ -655,7 +655,7 @@ body {
   padding: 5px 15px;
   transition: opacity 0.3s;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-link {
     transition: color 1.3s, opacity 0.3s;
   }
@@ -666,7 +666,7 @@ body {
 .nav-link--active {
   opacity: 1;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-link--active {
     color: var(--bg-color);
   }
@@ -702,7 +702,7 @@ body {
 .nav-item-highlight {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .nav-item-highlight {
     display: unset;
     position: absolute;
@@ -719,7 +719,7 @@ body {
   left: 20px;
   transition: opacity 0.5s;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .theme-switch {
     position: relative;
     margin: auto 1em;
@@ -772,8 +772,8 @@ body {
     position: absolute;
     width: 170px;
     height: 70px;
-    left: 5px;
-    top: 40px;
+    left: 10px;
+    top: 35px;
     fill: var(--primary-color);
   }
 }
@@ -782,7 +782,7 @@ body {
     width: 300px;
     height: 150px;
     top: 60px;
-    left: 10px;
+    left: 20px;
   }
 }
 
@@ -804,7 +804,7 @@ body {
   border-radius: 10px;
   transition: transform 0.2s 0.1s ease;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .burger {
     display: none;
   }
@@ -824,9 +824,8 @@ body {
   max-height: 100vh;
   margin: 0 auto;
   filter: var(--brightness);
-  animation: flicker 5s ease infinite;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   #neon-logo {
     width: 80vw;
     max-width: 1000px;
@@ -905,7 +904,7 @@ body {
 #portfolio {
   height: max-content;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   #portfolio {
     height: 100vh;
   }
@@ -915,9 +914,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  margin: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .portfolio-container {
     width: 600px;
   }
@@ -928,7 +927,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .filter-container {
     display: flex;
     justify-content: flex-end;
@@ -944,7 +943,7 @@ body {
   text-align: center;
   min-width: 190px;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .filter {
     width: 10vw;
   }
@@ -1024,7 +1023,7 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .projects {
     display: grid;
     gap: 2em 3em;
@@ -1042,7 +1041,7 @@ body {
   cursor: pointer;
   margin-bottom: 2em;
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .projects-thumbnail {
     margin: 0;
   }

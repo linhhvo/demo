@@ -1,6 +1,6 @@
 // Media query breaks variables
 $break-sm: 400px;
-$break-med: 768px;
+$break-med: 800px;
 $break-lg: 1300px;
 $break-xlg: 2500px;
 
@@ -114,14 +114,14 @@ $white: rgba(228, 228, 228);
 
 .on {
 	--bulb-color: #f7c400;
-	--stroke-color: rgb(228, 228, 228);
-	--ray-color: #f7c400;
-	--outline-fill-color: transparent;
+	--ray-color: #da9500;
+	--stroke-color: rgb(56, 56, 56);
+	--outline-fill-color: rgb(56, 56, 56);
 }
 
 .off {
 	--bulb-color: rgba(255, 255, 255, 0.192);
-	--stroke-color: black;
 	--ray-color: transparent;
-	--outline-fill-color: black;
+	--stroke-color: rgba(228, 228, 228);
+	--outline-fill-color: rgba(228, 228, 228);
 }

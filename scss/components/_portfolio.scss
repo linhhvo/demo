@@ -9,7 +9,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 0 auto;
+	margin: auto;
 	@include mq($break-med) {
 		width: 600px;
 	}
@@ -22,7 +22,6 @@
 	@include mq($break-med) {
 		display: flex;
 		justify-content: flex-end;
-		// margin: 0 auto;
 	}
 }
 
@@ -113,7 +112,6 @@
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	// margin: 0 auto;
 	@include mq($break-med) {
 		display: grid;
 		gap: 2em 3em;

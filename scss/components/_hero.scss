@@ -3,7 +3,7 @@
 	max-height: 100vh;
 	margin: 0 auto;
 	filter: var(--brightness);
-	animation: flicker 5s ease infinite;
+	// animation: flicker 5s ease infinite;
 
 	@include mq($break-med) {
 		width: 80vw;

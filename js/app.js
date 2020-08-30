@@ -26,8 +26,8 @@ const logoWelcomeText = document.getElementById('text-welcome');
 const filterBtn = document.getElementById('filter-btn');
 const filterList = document.querySelector('.filter ul')
 
-const smallScreen = window.matchMedia('(max-width: 767px)');
-const bigScreen = window.matchMedia('(min-width: 768px)');
+const smallScreen = window.matchMedia('(max-width: 800px)');
+const bigScreen = window.matchMedia('(min-width: 801px)');
 
 const options = {
 	threshold: 0.5,
@@ -39,8 +39,8 @@ const themeMode = localStorage.getItem('theme');
 const theme = {
 	dark: () => {
 		body.classList.replace('light', 'dark')
-		lightBulb.classList.replace('off', 'on');
-		lightBulbText.textContent = 'turn me off';
+		lightBulb.classList.replace('on', 'off');
+		lightBulbText.textContent = 'enable light mode';
 		primaryGradient.classList.replace('gradient-primary-light', 'gradient-primary-dark');
 		iconGradient.classList.replace('gradient-icon-light', 'gradient-icon-dark');
 		glows.forEach(glow => glow.style.display = '')
@@ -48,8 +48,8 @@ const theme = {
 	},
 	light: () => {
 		body.classList.replace('dark', 'light')
-		lightBulb.classList.replace('on', 'off');
-		lightBulbText.textContent = 'light me up';
+		lightBulb.classList.replace('off', 'on');
+		lightBulbText.textContent = 'enable dark mode';
 		primaryGradient.classList.replace('gradient-primary-dark', 'gradient-primary-light');
 		iconGradient.classList.replace('gradient-icon-dark', 'gradient-icon-light');
 		glows.forEach(glow => glow.style.display = 'none')
@@ -79,7 +79,7 @@ function setMode () {
 
 function switchMode () {
 	// Switch dark -> light
-	if (lightBulb.classList.contains('on')) {
+	if (lightBulb.classList.contains('off')) {
 		theme.light();
 		//Switch light -> dark
 	} else {
