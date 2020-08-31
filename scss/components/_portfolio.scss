@@ -156,7 +156,6 @@
 
 	&--techstack {
 		margin-top: 0.75em;
-		width: 100px;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -180,6 +179,7 @@
 .project-links {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	a {
 		text-decoration: none;
 		width: 48%;
@@ -209,7 +209,7 @@
 .project-details {
 	position: absolute;
 	width: 400px;
-	height: 500px;
+	height: 450px;
 	border-radius: 20px;
 	top: -20px;
 	left: -65px;
@@ -263,10 +263,29 @@
 }
 
 .details-container {
-	height: 310px;
+	height: 260px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	text-align: center;
 	padding: 0 2em;
+}
+
+.icon::before {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	margin-right: 0.5em;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+}
+
+.demo::before {
+	content: '\f108';
+}
+
+.source::before {
+	content: '\f121';
 }

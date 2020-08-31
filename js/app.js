@@ -153,7 +153,9 @@ function addSkillIcon () {
 			<use xlink:href="#${skill}" href="#${skill}">
 			</svg>`
 		})
+		projectTechstack.style.width = 33 * projectSkills.length + 'px';
 	})
+
 }
 
 function hideElement (element) {
@@ -185,7 +187,7 @@ function populateProjectDetails (thumbnail, detailsCard) {
 	detailsCard.innerHTML = detailsHTML;
 
 	function getProjectDetails (infoType, attribute) {
-		detailsCard.querySelector(`.project-details ${infoType}`)[ attribute ] = thumbnail.querySelector(`${infoType}`)[ attribute ];
+		detailsCard.querySelector(`${infoType}`)[ attribute ] = thumbnail.querySelector(`${infoType}`)[ attribute ];
 	}
 
 	getProjectDetails('img', 'src');
@@ -194,6 +196,7 @@ function populateProjectDetails (thumbnail, detailsCard) {
 	getProjectDetails('.project-thumbnail--techstack', 'innerHTML');
 	getProjectDetails('.project-links', 'innerHTML');
 
+	detailsCard.querySelector('.project-thumbnail--techstack').style.width = thumbnail.querySelector('.project-thumbnail--techstack').style.width;
 }
 
 // Get project info and populate to details card on hover on big screen
