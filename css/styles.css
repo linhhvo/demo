@@ -996,6 +996,7 @@ body {
   box-shadow: 0px 0px 20px rgba(26, 26, 26, 0.274);
   padding: 1em 0;
   transition: all 0.4s;
+  z-index: 10;
 }
 .filter li {
   color: var(--primary-color);
@@ -1068,9 +1069,6 @@ body {
     margin: 0;
   }
 }
-.project-thumbnail--info {
-  z-index: 0;
-}
 .project-thumbnail--title {
   font-weight: 400;
   font-size: 1.5rem;
@@ -1078,10 +1076,10 @@ body {
 .project-thumbnail--techstack {
   margin-top: 0.75em;
 }
-.project-thumbnail img {
+.project-thumbnail--img {
   width: 100%;
   border-radius: 20px;
-  transition: transform 0.3s;
+  transition: transform 0.25s ease-in-out;
 }
 .project-thumbnail svg {
   width: 30px;
@@ -1118,20 +1116,20 @@ body {
   border-radius: 20px;
   top: -20px;
   left: -65px;
-  z-index: 1;
   background-color: var(--brighter-bg-color);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   opacity: 0;
-  transition: opacity 0.5s;
+  z-index: 1;
+  transform: scale(0.2);
 }
 .project-details img {
   height: 130px;
   object-fit: none;
-  opacity: 0.05;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  opacity: 0.25;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .project-details p {
   color: var(--primary-color);
@@ -1147,11 +1145,18 @@ body {
   width: 45%;
 }
 
-.project-thumbnail:hover .img-test {
+.project-thumbnail:hover .project-thumbnail--img {
   transform: translateY(-35%) scale(0.8);
+  z-index: 2;
+}
+.project-thumbnail:hover .project-thumbnail--info,
+.project-thumbnail:hover .project-thumbnail--links {
+  opacity: 0;
 }
 .project-thumbnail:hover .project-details {
   opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.1s linear, transform 0.25s cubic-bezier(0.11, 0.8, 0.26, 0.93);
 }
 
 .details-container {
