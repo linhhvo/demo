@@ -14,6 +14,8 @@
   --brightness: none;
   --skill-icon: #323330;
   --button-bg-color: #9167a5;
+  --link-color: #00a558;
+  --link-hover-color: #c75000;
 }
 
 .dark {
@@ -32,6 +34,8 @@
   --brightness: brightness(110%);
   --skill-icon: rgba(228, 228, 228);
   --button-bg-color: #dac9c4;
+  --link-color: #ff8d7b;
+  --link-hover-color: #fffd93;
 }
 
 .gradient-primary-dark {
@@ -564,6 +568,7 @@ body {
 }
 
 .title {
+  font-size: 2.5rem;
   text-align: center;
   font-weight: 500;
   margin-bottom: 2em;
@@ -913,7 +918,8 @@ body {
 }
 @media (min-width: 800px) {
   #portfolio {
-    height: 100vh;
+    margin-top: 70px;
+    height: 87vh;
   }
 }
 
@@ -950,7 +956,7 @@ body {
 .filter {
   font-family: "Nunito", sans-serif;
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -1037,13 +1043,12 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 @media (min-width: 768px) {
   .projects {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 @media (min-width: 800px) {
@@ -1052,6 +1057,7 @@ body {
     gap: 3em;
     grid-template-rows: repeat(auto-fill, 410px);
     grid-template-columns: repeat(auto-fit, 270px);
+    justify-content: center;
   }
 }
 
@@ -1081,6 +1087,9 @@ body {
 }
 .project-thumbnail--techstack {
   margin-top: 0.75em;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 .project-thumbnail--img {
   width: 100%;
@@ -1150,7 +1159,7 @@ body {
   color: var(--primary-color);
 }
 .project-details .project-thumbnail--techstack {
-  margin: 0;
+  margin: 0 auto;
 }
 .project-details .project-links {
   justify-content: space-around;
@@ -1183,6 +1192,29 @@ body {
   justify-content: space-between;
   text-align: center;
   padding: 0 2em;
+}
+
+.contact-container {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.contact-container h2 {
+  font-size: 1.85rem;
+}
+.contact-container p {
+  color: var(--primary-color);
+  margin: 1em 0.2em 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+.contact-container a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+.contact-container a:hover {
+  color: var(--link-hover-color);
 }
 
 /*# sourceMappingURL=styles.css.map */

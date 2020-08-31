@@ -29,13 +29,10 @@ const dropdownArrow = document.querySelector('.dropdown-arrow');
 
 const portfolioPage = document.getElementById('portfolio');
 const projectsSection = document.querySelector('.projects');
+const projectThumbnails = Array.from(document.getElementsByClassName('project-thumbnail'));
 const smallScreen = window.matchMedia('(max-width: 767px)');
 const mediumScreen = window.matchMedia('(min-width: 768px)');
 const largeScreen = window.matchMedia('(min-width: 1300px');
-
-const options = {
-	threshold: 0.5,
-};
 
 const OSDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 const themeMode = localStorage.getItem('theme');
@@ -108,11 +105,6 @@ function navBarAnimation () {
 	});
 }
 
-// function getAllSiblingAnchors (activeAnchor) {
-// 	const allAnchors = Array.from(document.querySelectorAll('.nav-link'));
-// 	return allAnchors.filter((anchor) => anchor !== activeAnchor);
-// }
-
 function getAllSiblings (parent, currentElement, selector) {
 	const children = Array.from(parent.querySelectorAll(`${selector}`));
 	return children.filter((child) => child !== currentElement);
@@ -120,19 +112,20 @@ function getAllSiblings (parent, currentElement, selector) {
 
 function changeNavLinksColor (navLink) {
 	navLink.classList.add('nav-link--active');
-	// let clickedLinkSiblings = getAllSiblingAnchors(navLink);
 	let clickedLinkSiblings = getAllSiblings(document, navLink, '.nav-link')
 	clickedLinkSiblings.forEach(
 		(sibling) => sibling.classList.remove('nav-link--active')
 	);
 }
 
+const options = {
+	threshold: 0.5,
+};
+
 function matchNavLink (entries) {
 	entries.forEach((entry) => {
 		const idName = entry.target.id;
 		const activeAnchor = document.querySelector(`[data-page=${idName}]`);
-		// let anchorSiblings = getAllSiblingAnchors(activeAnchor);
-		let anchorSiblings = getAllSiblings(document, activeAnchor, '.nav-link')
 		const coords = activeAnchor.getBoundingClientRect();
 		const directions = {
 			height: coords.height,
@@ -148,6 +141,36 @@ function matchNavLink (entries) {
 			changeNavLinksColor(activeAnchor);
 		}
 	})
+}
+
+function addSkillIcon () {
+	projectThumbnails.forEach(project => {
+		const projectTechstack = project.querySelector('.project-thumbnail--techstack');
+		let projectSkills = project.dataset.skill.split(' ');
+		projectSkills.forEach(skill => {
+			projectTechstack.innerHTML +=
+				`<svg>
+			<use xlink:href="#${skill}" href="#${skill}">
+			</svg>`
+		})
+	})
+}
+
+function hideElement (element) {
+	element.style.opacity = 0;
+	element.style.transform = 'scale(0)';
+	element.style.transition = '';
+}
+
+function isWithinView (target) {
+	const viewportHeight = window.innerHeight;
+	let targetPosition = target.getBoundingClientRect();
+	let offsetTop = targetPosition.top / viewportHeight;
+	let offsetBottom = targetPosition.bottom / viewportHeight;
+
+	if (offsetTop > 0.9 || offsetBottom < 0.4) {
+		return true;
+	} else { return false }
 }
 
 const detailsHTML =
@@ -173,7 +196,7 @@ function populateProjectDetails (thumbnail, detailsCard) {
 
 }
 
-// Get project info and populate to details card on hover
+// Get project info and populate to details card on hover on big screen
 if (largeScreen.matches) {
 	projectsSection.addEventListener('mouseover', (e) => {
 		if (e.target !== projectsSection && e.target.tagName !== 'A') {
@@ -183,36 +206,37 @@ if (largeScreen.matches) {
 			populateProjectDetails(projectThumbnail, projectDetailsCard);
 		}
 	})
-} else {
+}
+// Get project info and populate to details card on click on small screen
+else {
 	projectsSection.addEventListener('click', (e) => {
 		if (e.target !== projectsSection && e.target.tagName !== 'A') {
 			const projectThumbnail = e.target.closest('.project-thumbnail');
 			const projectDetailsCard = projectThumbnail.lastElementChild;
 
 			populateProjectDetails(projectThumbnail, projectDetailsCard);
-
+			// Display card
 			projectDetailsCard.style.opacity = 1;
 			projectDetailsCard.style.transform = 'scale(1)';
 			projectDetailsCard.style.transition = `opacity 0.1s linear, transform 0.25s cubic-bezier(0.11, 0.8, 0.26, 0.93)`;
-
+			// Hide sibling cards
 			let detailsCardSiblings = getAllSiblings(projectsSection, projectDetailsCard, '.project-details');
 			detailsCardSiblings.forEach(sibling => hideElement(sibling)
 			)
-
+			// Close card when get clicked on itself
 			projectDetailsCard.addEventListener('click', (e) => {
 				e.stopPropagation();
 				hideElement(projectDetailsCard);
 			})
+			// Close card when scroll past it
+			window.addEventListener('scroll', () => {
+				if (isWithinView(projectDetailsCard)) {
+					hideElement(projectDetailsCard);
+				}
+			})
 		}
 	})
 }
-
-function hideElement (element) {
-	element.style.opacity = 0;
-	element.style.transform = 'scale(0)';
-	element.style.transition = '';
-}
-
 
 window.onload = () => {
 	// Set initial theme mode
@@ -259,3 +283,22 @@ document.addEventListener('click', (e) => {
 	}
 })
 
+filterList.addEventListener('click', (e) => {
+	// Reset projects display
+	projectThumbnails.forEach(project => project.style.display = '')
+	if (e.target.tagName === 'LI') {
+		if (e.target.textContent === 'Show All') {
+			projectThumbnails.forEach(project => project.style.display = '')
+		} else {
+			const selectedSkill = e.target.textContent.toLowerCase();
+			projectThumbnails.forEach(project => {
+				if (!project.dataset.skill.includes(selectedSkill)) {
+					project.style.display = 'none';
+				}
+			})
+		}
+		filterBtn.textContent = e.target.textContent;
+	}
+})
+
+addSkillIcon();

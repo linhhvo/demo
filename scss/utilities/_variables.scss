@@ -24,6 +24,8 @@ $white: rgba(228, 228, 228);
 	--brightness: none;
 	--skill-icon: #323330;
 	--button-bg-color: #9167a5;
+	--link-color: #00a558;
+	--link-hover-color: #c75000;
 }
 
 .dark {
@@ -42,6 +44,8 @@ $white: rgba(228, 228, 228);
 	--brightness: brightness(110%);
 	--skill-icon: rgba(228, 228, 228);
 	--button-bg-color: #dac9c4;
+	--link-color: #ff8d7b;
+	--link-hover-color: #fffd93;
 }
 
 .gradient-primary-dark {
