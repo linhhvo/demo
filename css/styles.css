@@ -807,7 +807,7 @@ body {
   margin: auto;
   opacity: 1;
   cursor: pointer;
-  transition: opacity 0.2;
+  transition: opacity 0.2s;
 }
 .burger * {
   width: 30px;
