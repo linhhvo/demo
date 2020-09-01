@@ -88,28 +88,28 @@
 	}
 }
 
-.social-icons-container {
+.site-icons-container {
 	width: 1.5em;
 	height: auto;
 	padding-top: 8px;
 }
 
-.linkedin {
+.professional {
 	margin-right: 0.75em;
 }
 
-.social-icons {
+.site-icons {
 	fill: var(--primary-color);
 	transition: all 0.3s;
 }
 
-.linkedin-icon:hover {
+.professional-icon:hover {
 	fill: #0077b5;
 	background-color: white;
 	border-radius: 100px;
 }
 
-.github-icon:hover {
+.code-icon:hover {
 	fill: #541f6d;
 	background-color: white;
 	border-radius: 100px;
