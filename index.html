@@ -12,25 +12,18 @@
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:url" content="https://linhhvo.com/" />
 
-	<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-	<link rel="preload"
-		href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Nunito:wght@300;400&family=Marvel&family=Catamaran:wght@200;300&family=Dosis:wght@200;300;400;500&display=swap"
-		as="font" crossorigin="anonymous">
-
-	<link rel="preload" href="Fonts/NeonTubes2/NeonTubes2.otf" as="font" type="font/otf" crossorigin>
+	<link rel="preload" href="Fonts/NeonTubes2/NeonTubes2.otf" as="font" type="font/otf" crossorigin="anonymous">
 	<link rel="preload" href="Fonts/HTNeon/HTNeon.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 	<link rel="preload" href="Fonts/HTNeon/HTNeon.woff" as="font" type="font/woff" crossorigin="anonymous">
 	<link rel="preload" href="Fonts/ink-free-normal.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 	<link rel="preload" href="css/styles.css" as="style">
 	<link rel="preload" href="js/app.js" as="script">
-	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-		crossorigin="anonymous" />
 
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
 		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
 		crossorigin="anonymous" />
+
 	<title>Linh Vo</title>
 </head>
 
@@ -265,7 +258,11 @@
 
 						<!-- Project 1 -->
 						<div class="project-thumbnail" data-skill="html css sass javascript">
-							<img class="project-thumbnail--img" src="thumbnail/web-app-dashboard.webp" alt="Project thumbnail">
+							<picture>
+								<source srcset="thumbnail/web-app-dashboard.webp" type="image/webp">
+								<source srcset="thumbnail/web-app-dashboard.png" type="image/png">
+								<img class="project-thumbnail--img" src="thumbnail/web-app-dashboard.png" alt="Project thumbnail">
+							</picture>
 							<div class="project-thumbnail--info">
 								<h2 class="project-thumbnail--title">Web App Dashboard</h2>
 								<p class="project-thumbnail--desc">An interactive dashboard for a web application. The graphs were
@@ -284,7 +281,11 @@
 
 						<!-- Project 2-->
 						<div class="project-thumbnail" data-skill="html css sass javascript api">
-							<img class="project-thumbnail--img" src="thumbnail/employee-directory.webp" alt="Project thumbnail">
+							<picture>
+								<source srcset="thumbnail/employee-directory.webp" type="image/webp">
+								<source srcset="thumbnail/employee-directory.png" type="image/png">
+								<img class="project-thumbnail--img" src="thumbnail/employee-directory.png" alt="Project thumbnail">
+							</picture>
 							<div class="project-thumbnail--info">
 								<h2 class="project-thumbnail--title">Employee Directory</h2>
 								<p class="project-thumbnail--desc">A responsive company directory with random employee information from
@@ -303,7 +304,11 @@
 
 						<!-- Project 3-->
 						<div class="project-thumbnail" data-skill="html css javascript">
-							<img class="project-thumbnail--img" src="thumbnail/wheel-of-success.webp" alt="Project thumbnail">
+							<picture>
+								<source srcset="thumbnail/wheel-of-success.webp" type="image/webp">
+								<source srcset="thumbnail/wheel-of-success.png" type="image/png">
+								<img class="project-thumbnail--img" src="thumbnail/wheel-of-success.png" alt="Project thumbnail">
+							</picture>
 							<div class="project-thumbnail--info">
 								<h2 class="project-thumbnail--title">Wheel of Success Game</h2>
 								<p class="project-thumbnail--desc">A word guessing game where players click letters from an onscreen
@@ -323,7 +328,11 @@
 
 						<!-- Project 4-->
 						<div class="project-thumbnail" data-skill="html css sass javascript">
-							<img class="project-thumbnail--img" src="thumbnail/photo-gallery.webp" alt="Project thumbnail">
+							<picture>
+								<source srcset="thumbnail/photo-gallery.webp" type="image/webp">
+								<source srcset="thumbnail/photo-gallery.png" type="image/png">
+								<img class="project-thumbnail--img" src="thumbnail/photo-gallery.png" alt="Project thumbnail">
+							</picture>
 							<div class="project-thumbnail--info">
 								<h2 class="project-thumbnail--title">Photo Gallery</h2>
 								<p class="project-thumbnail--desc">A responsive photo gallery with a search filter based on the image
