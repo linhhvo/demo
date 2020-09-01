@@ -1152,6 +1152,7 @@ body {
 .project-details img {
   height: 130px;
   object-fit: none;
+  object-position: 65% 50%;
   opacity: 0.25;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
