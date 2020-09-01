@@ -488,16 +488,17 @@ template {
 
 @font-face {
   font-family: "NeonTubes2-Regular";
+  font-display: swap;
   src: url("../Fonts/NeonTubes2/NeonTubes2.otf") format("opentype");
 }
 @font-face {
   font-family: "HTNeonW01-Regular";
-  src: url("../Fonts/HTNeon/HTNeonW01Regular/HTNeonW01Regular.otf") format("opentype");
-  src: url("../Fonts/HTNeon/import/HTNeon.eot");
-  src: url("../Fonts/HTNeon/import/HTNeon.eot?#iefix") format("embedded-opentype"), url("../Fonts/HTNeon/import/HTNeon.woff2") format("woff2"), url("../Fonts/HTNeon/import/HTNeon.woff") format("woff"), url("../Fonts/HTNeon/import/HTNeon.ttf") format("truetype"), url("../Fonts/HTNeon/import/HTNeon.svg#HT Neon W01 Regular") format("svg");
+  font-display: swap;
+  src: url("../Fonts/HTNeon/HTNeon.woff2") format("woff2"), url("../Fonts/HTNeon/HTNeon.woff") format("woff");
 }
 @font-face {
   font-family: "Ink Free";
+  font-display: swap;
   src: url("../Fonts/ink-free-normal.ttf") format("truetype");
 }
 * {
