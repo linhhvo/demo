@@ -16,18 +16,11 @@ const themeSwitchContainer = document.querySelector('.theme-switch');
 const primaryGradient = document.getElementById('gradient-primary');
 const iconGradient = document.getElementById('gradient-icon');
 const glows = document.querySelectorAll('.glow');
-const logoNameText = document.getElementById('text-name');
-const logoBubble = document.getElementById('bubble');
-const logoIconOutline = document.getElementById('icon-outline');
-const logoIconInner = document.getElementById('icon-inner');
-const logoIconBrackets = document.getElementById('icon-brackets');
-const logoWelcomeText = document.getElementById('text-welcome');
 
 const filterBtn = document.getElementById('filter-btn');
 const filterList = document.querySelector('.filter ul')
 const dropdownArrow = document.querySelector('.dropdown-arrow');
 
-const portfolioPage = document.getElementById('portfolio');
 const projectsSection = document.querySelector('.projects');
 const projectThumbnails = Array.from(document.getElementsByClassName('project-thumbnail'));
 const smallScreen = window.matchMedia('(max-width: 767px)');
